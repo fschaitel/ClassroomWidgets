@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STORY</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            font-size: 3.5rem;
+            color: #ff5733;
+            text-shadow: 2px 2px #c70039;
+        }
+        #mot {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #333;
+            background: none;
+            padding: 30px;
+            border-radius: 15px;
+            display: inline-block;
+            margin: 40px 0;
+        }
+        button {
+            font-size: 2rem;
+            background: #ff5733;
+            border: none;
+            padding: 15px 30px;
+            color: white;
+            border-radius: 32px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+        button:hover {
+            background: #c70039;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>🎭 Narrativa 🎭</h1>
+    <p style="font-size: 1.5rem;">Conte uma história improvisada e inclua a palavra abaixo conforme ela aparece!</p>
+    <div id="mot">🎲 Aguarde...</div>
+    <br>
+    <button onclick="tirarPalavra()">🎲 Tirar uma Palavra</button>
+    
+    <script>
+        const palavras = [
+            "🐉 dragão", "🏰 castelo", "🌍 aventura", "🌳 floresta", "💰 tesouro", "🕵️ mistério", 
+            "🦸 herói", "😈 vilão", "🧙 feiticeiro", "✨ maravilha", "🚀 espaço", "👻 fantasma", 
+            "🤖 robô", "🏝️ ilha", "🌋 vulcão", "🌊 oceano", "⏳ tempo", "🦄 unicórnio", 
+            "🐾 pegadas", "🎩 mágico", "🛸 OVNI", "🗿 mistério antigo", "🦅 águia", "🎭 máscara"
+        ];
+        
+        function tirarPalavra() {
+            const indice = Math.floor(Math.random() * palavras.length);
+            document.getElementById("mot").textContent = palavras[indice];
+        }
+        
+        setInterval(tirarPalavra, 10000);
+    </script>
+</body>
+</html>

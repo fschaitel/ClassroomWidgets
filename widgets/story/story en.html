@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STORY</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            font-size: 3.5rem;
+            color: #ff5733;
+            text-shadow: 2px 2px #c70039;
+        }
+        #mot {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #333;
+            background: none;
+            padding: 30px;
+            border-radius: 15px;
+            display: inline-block;
+            margin: 40px 0;
+        }
+        button {
+            font-size: 2rem;
+            background: #ff5733;
+            border: none;
+            padding: 15px 30px;
+            color: white;
+            border-radius: 32px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+        button:hover {
+            background: #c70039;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>🎭 Narrative 🎭</h1>
+    <p style="font-size: 1.5rem;">Tell an improvised story and include the word below as it appears!</p>
+    <div id="mot">🎲 Wait...</div>
+    <br>
+    <button onclick="drawWord()">🎲 Draw a Word</button>
+    
+    <script>
+        const words = [
+            "🐉 dragon", "🏰 castle", "🌍 adventure", "🌳 forest", "💰 treasure", "🕵️ mystery", 
+            "🦸 hero", "😈 villain", "🧙 wizard", "✨ wonder", "🚀 space", "👻 ghost", 
+            "🤖 robot", "🏝️ island", "🌋 volcano", "🌊 ocean", "⏳ time", "🦄 unicorn", 
+            "🐾 footprints", "🎩 magician", "🛸 UFO", "🗿 ancient mystery", "🦅 eagle", "🎭 mask"
+        ];
+        
+        function drawWord() {
+            const index = Math.floor(Math.random() * words.length);
+            document.getElementById("mot").textContent = words[index];
+        }
+        
+        setInterval(drawWord, 10000);
+    </script>
+</body>
+</html>

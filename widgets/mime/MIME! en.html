@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIME!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+        
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 30px; /* Reduced margin */
+            background-color: #f4f4f4;
+        }
+        .button {
+            display: inline-block;
+            padding: 80px 160px; /* Reduced button padding */
+            font-size: 80px; /* Reduced button font size */
+            cursor: pointer;
+            background-color: #ff5733;
+            color: #fff;
+            border: none;
+            border-radius: 32px; /* Reduced border radius */
+            transition: background 0.3s ease;
+        }
+        .button:hover {
+            background-color: #c70039;
+        }
+        .mimica {
+            font-size: 110px; /* Reduced mimica font size */
+            font-weight: bold;
+            margin-top: 80px; /* Reduced top margin */
+            color: #333;
+            font-family: 'Roboto', sans-serif;
+        }
+        h1 {
+            font-size: 200px; /* Reduced title font size */
+        }
+    </style>
+</head>
+<body>
+    <h1>MIME!</h1>
+    <button id="sortearMimica" class="button">▶</button>
+    <div id="mimicaSorteada" class="mimica"></div>
+
+    <script>
+        var mimicas = [
+            "riding a bicycle",
+            "opening an umbrella on a windy day",
+            "playing an imaginary musical instrument",
+            "waking up startled by an alarm clock",
+            "carrying a very heavy suitcase",
+            "making an important phone call",
+            "eating quickly melting ice cream",
+            "getting scared by seeing a mouse",
+            "painting a picture like a great artist",
+            "making a cake recipe and missing an ingredient",
+            "blowing party balloons",
+            "playing soccer and scoring an amazing goal",
+            "playing hide and seek and being found",
+            "opening a surprise gift",
+            "trying to catch an unwilling cat",
+            "getting into an imaginary car and driving",
+            "being a robot with faulty movements",
+            "dancing as if at a party",
+            "performing as an amazing magician",
+            "making a wish on a shooting star",
+            "jumping rope continuously",
+            "struggling against very strong wind",
+            "building a snowman in winter",
+            "jumping in puddles after rain",
+            "escaping from a beehive",
+            "playing with a dog",
+            "trying to catch a flying away balloon",
+            "brushing teeth",
+            "taking a shower in cold water",
+            "being an astronaut floating in space",
+            "reading a very scary book",
+            "eating something very sour",
+            "skateboarding",
+            "being a pirate searching for treasure",
+            "swimming like a fish",
+            "walking on hot coals (without burning!)",
+            "pretending to be trapped inside an invisible box",
+            "being a superhero saving someone",
+            "delivering a speech like a king or queen",
+            "building a sandcastle at the beach",
+            "holding a crying baby and trying to calm it down",
+            "ringing a very heavy bell",
+            "climbing a very steep mountain",
+            "juggling with invisible objects",
+            "getting scared by seeing a ghost",
+            "fighting an imaginary monster",
+            "walking like a model on a runway",
+            "being a basketball player making a last-second shot",
+            "exploring a dark cave with a flashlight",
+            "tickling someone and running away",
+            "catching a butterfly without harming it"
+        ];
+
+        function sortearMimica() {
+            var indice = Math.floor(Math.random() * mimicas.length);
+            document.getElementById("mimicaSorteada").textContent = mimicas[indice];
+        }
+
+        document.getElementById("sortearMimica").addEventListener("click", sortearMimica);
+    </script>
+</body>
+</html>

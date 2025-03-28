@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VERBA!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        .container {
+            background: linear-gradient(135deg, #fce4ec, #fff5b1);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: gray;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: gray;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 15px 25px;
+            font-size: 1.2em;
+            background-color: #ff66b2;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff3385;
+        }
+
+        #resultado {
+            margin-top: 30px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            color: #333;
+            font-size: 1.2em;
+        }
+
+        #dicas {
+            margin-top: 40px;
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        #dicas ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #dicas li {
+            margin-bottom: 20px;
+            padding-left: 30px;
+            text-align: left;
+        }
+
+        #dicas li::before {
+            content: "👉 ";
+            font-size: 1.5em;
+            color: #ff66b2;
+        }
+
+        strong {
+            color: #4f84c1;
+        }
+
+        h2 {
+            color: #ff66b2;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>VERBA!</h1>
+        <p>Este protótipo de interface pedagógica foi criado para ajudar você a praticar temas de redação dos principais vestibulares do Brasil. Ao sortear temas reais de provas anteriores, ela permite que você desenvolva suas habilidades de escrita, reflexão crítica e argumentação, essenciais para um bom desempenho nos exames. Prepare-se de forma eficiente e estratégica com temas atualizados e variados!</p>
+        <button onclick="sortearTema()">Sortear Tema</button>
+        <div id="resultado"></div>
+        <div id="dicas">
+            <h2>Dicas para a Redação:</h2>
+            <ul>
+                <li><strong>📝 Introdução:</strong> Apresente claramente o tema e sua proposta. Faça uma contextualização adequada.</li>
+                <li><strong>💡 Desenvolvimento:</strong> Organize os argumentos de maneira coesa e lógica, garantindo que cada parágrafo complemente o anterior.</li>
+                <li><strong>✅ Conclusão:</strong> Reafirme a tese de forma clara e objetiva, propondo uma solução ou reflexão sobre o tema.</li>
+                <li><strong>🔗 Coesão e Coerência:</strong> Utilize conectivos e transições entre ideias para garantir a fluidez do texto.</li>
+                <li><strong>🔍 Revisão:</strong> Após escrever, revise seu texto para corrigir erros gramaticais e de pontuação.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Lista de temas de redação com universidade e ano
+        const temas = [
+            {
+                tema: "O impacto das redes sociais na formação de opinião.",
+                universidade: "UFMG",
+                ano: 2023
+            },
+            {
+                tema: "O papel da ciência no mundo contemporâneo.",
+                universidade: "UFMG",
+                ano: 2022
+            },
+            {
+                tema: "A importância do passado para a compreensão do presente.",
+                universidade: "UFMG",
+                ano: 2021
+            },
+            {
+                tema: "A capacidade de se opor a um destino socialmente estabelecido fortalece nossa humanidade?",
+                universidade: "UFRJ",
+                ano: 2023
+            },
+            {
+                tema: "A mentira programada é uma arma política válida para conquistar o poder e sustentá-lo?",
+                universidade: "UFRJ",
+                ano: 2022
+            },
+            {
+                tema: "O princípio 'certeza não é verdade' deve orientar as pessoas na condução de suas vidas públicas e privadas?",
+                universidade: "UFRJ",
+                ano: 2021
+            },
+            {
+                tema: "O hábito da leitura e o perfil dos leitores brasileiros.",
+                universidade: "UFSC",
+                ano: 2023
+            },
+            {
+                tema: "A relação entre o agronegócio e o meio ambiente no desenvolvimento no Brasil.",
+                universidade: "UFSC",
+                ano: 2022022
+            },
+            {
+                tema: "A exclusão escolar e o direito à educação no Brasil.",
+                universidade: "UFSC",
+                ano: 2020
+            },
+            {
+                tema: "Desafios da educação pública no contexto pós-pandemia.",
+                universidade: "UnB",
+                ano: 2022
+            },
+            {
+                tema: "O papel das universidades na promoção do desenvolvimento regional.",
+                universidade: "UnB",
+                ano: 2021
+            },
+            {
+                tema: "A influência da cultura nordestina na formação da identidade brasileira.",
+                universidade: "UFPE",
+                ano: 2023
+            },
+            {
+                tema: "O uso de agrotóxicos e seus efeitos na saúde pública.",
+                universidade: "UFPE",
+                ano: 2022
+            },
+            {
+                tema: "A preservação do cerrado e suas implicações ambientais.",
+                universidade: "UFPE",
+                ano: 2021
+            },
+            {
+                tema: "A contribuição da música popular brasileira para a cultura mundial.",
+                universidade: "UFG",
+                ano: 2023
+            },
+            {
+                tema: "A importância da educação indígena no contexto contemporâneo.",
+                universidade: "UFG",
+                ano: 2022
+            },
+            {
+                tema: "A biodiversidade amazônica e suas potencialidades econômicas.",
+                universidade: "UFAM",
+                ano: 2023
+            },
+            {
+                tema: "O impacto da agropecuária no meio ambiente pantaneiro.",
+                universidade: "UFAM",
+                ano: 2022
+            },
+            {
+                tema: "A importância da língua portuguesa na preservação cultural.",
+                universidade: "UFAM",
+                ano: 2021
+            }
+        ];
+
+        // Função que sorteia um tema e exibe a universidade e ano
+        function sortearTema() {
+            const temaAleatorio = temas[Math.floor(Math.random() * temas.length)];
+            const resultado = `
+                <strong>Tema:</strong> ${temaAleatorio.tema}<br>
+                <strong>Universidade:</strong> ${temaAleatorio.universidade}<br>
+                <strong>Ano:</strong> ${temaAleatorio.ano}
+            `;
+            document.getElementById("resultado").innerHTML = resultado;
+
+            // Mostrar as dicas
+            document.getElementById("dicas").style.display = "block";
+        }
+    </script>
+
+</body>
+</html>

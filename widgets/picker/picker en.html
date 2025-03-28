@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>picker.</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+    }
+    input[type="text"] {
+        padding: 8px;
+        margin: 10px;
+        width: 200px;
+    }
+    button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+    }
+</style>
+</head>
+<body>
+    <h2>picker.</h2>
+    <input type="text" id="nome" placeholder="type">
+    <button onclick="sortearNome()">try</button>
+    <p id="nomeSorteado"></p>
+
+    <script>
+        function sortearNome() {
+            var nome = document.getElementById('nome').value.trim();
+            if (nome) {
+                var nomes = nome.split(','); // separe nomes por vírgula
+                var indiceSorteado = Math.floor(Math.random() * nomes.length);
+                var nomeSorteado = nomes[indiceSorteado].trim();
+                document.getElementById('nomeSorteado').textContent = 'lucky one: ' + nomeSorteado;
+            } else {
+                alert('You gotta type, seriously...');
+            }
+        }
+    </script>
+</body>
+</html>

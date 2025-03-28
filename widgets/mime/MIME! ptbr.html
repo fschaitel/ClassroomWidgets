@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIME!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+        
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 200px; /* Reduzi a margem */
+            background-color: #f4f4f4;
+        }
+        .button {
+            display: inline-block;
+            padding: 80px 160px; /* Reduzi o padding do botão */
+            font-size: 80px; /* Reduzi o tamanho da fonte do botão */
+            cursor: pointer;
+            background-color: #ff5733;
+            color: #fff;
+            border: none;
+            border-radius: 32px; /* Reduzi o raio da borda */
+            transition: background 0.3s ease;
+        }
+        .button:hover {
+            background-color: #c70039;
+        }
+        .mimica {
+            font-size: 144px; /* Reduzi o tamanho da fonte da mímica */
+            font-weight: bold;
+            margin-top: 80px; /* Reduzi a margem superior */
+            color: #333;
+            font-family: 'Roboto', sans-serif;
+        }
+        h1 {
+            font-size: 200px; /* Reduzi o tamanho do título */
+        }
+    </style>
+</head>
+<body>
+    <h1>MIME!</h1>
+    <button id="sortearMimica" class="button">▶</button>
+    <div id="mimicaSorteada" class="mimica"></div>
+
+    <script>
+        var mimicas = [
+            "andar de bicicleta",
+            "abrir um guarda-chuva em dia de vento",
+            "tocar um instrumento musical imaginário",
+            "acordar assustado com um despertador",
+            "carregar uma mala muito pesada",
+            "fazer uma ligação telefônica importante",
+            "tomar um sorvete que derrete rápido",
+            "assustar-se ao ver um rato",
+            "pintar um quadro como um grande artista",
+            "fazer uma receita de bolo e errar um ingrediente",
+            "soprar balões de festa",
+            "jogar futebol e marcar um gol incrível",
+            "brincar de esconde-esconde e ser encontrado",
+            "abrir um presente surpresa",
+            "tentar pegar um gato que não quer ser pego",
+            "entrar em um carro imaginário e dirigir",
+            "ser um robô com falhas nos movimentos",
+            "dançar como se estivesse em uma festa",
+            "ser um mágico que faz truques incríveis",
+            "fazer um pedido a uma estrela cadente",
+            "pular corda sem parar",
+            "lutar contra um vento muito forte",
+            "fazer um boneco de neve no inverno",
+            "saltar em poças d'água depois da chuva",
+            "fugir de uma colmeia de abelhas",
+            "brincar com um cachorro",
+            "tentar pegar um balão que está voando para longe",
+            "escovar os dentes",
+            "tomar banho em água gelada",
+            "ser um astronauta flutuando no espaço",
+            "ler um livro muito assustador",
+            "comer algo muito azedo",
+            "andar de skate",
+            "ser um pirata procurando um tesouro",
+            "nadar como um peixe",
+            "andar sobre brasas quentes (sem se queimar!)",
+            "fingir que está preso dentro de uma caixa invisível",
+            "um super-herói salvando alguém",
+            "fazer um discurso como um rei ou rainha",
+            "construir um castelo de areia na praia",
+            "segurar um bebê chorando e tentar acalmá-lo",
+            "tocar um sino muito pesado",
+            "subir uma montanha muito íngreme",
+            "fazer malabarismo com objetos invisíveis",
+            "tomar um susto ao ver um fantasma",
+            "lutar com um monstro imaginário",
+            "caminhar como um modelo em uma passarela",
+            "ser um jogador de basquete fazendo uma cesta no último segundo",
+            "explorar uma caverna escura com uma lanterna",
+            "fazer cócegas em alguém e fugir",
+            "pegar uma borboleta sem machucá-la"
+        ];
+
+        function sortearMimica() {
+            var indice = Math.floor(Math.random() * mimicas.length);
+            document.getElementById("mimicaSorteada").textContent = mimicas[indice];
+        }
+
+        document.getElementById("sortearMimica").addEventListener("click", sortearMimica);
+    </script>
+</body>
+</html>

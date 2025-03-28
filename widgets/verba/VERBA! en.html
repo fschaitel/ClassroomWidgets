@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VERBA!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        .container {
+            background: linear-gradient(135deg, #fce4ec, #fff5b1);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: gray;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: gray;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 15px 25px;
+            font-size: 1.2em;
+            background-color: #ff66b2;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff3385;
+        }
+
+        #resultado {
+            margin-top: 30px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            color: #333;
+            font-size: 1.2em;
+        }
+
+        #dicas {
+            margin-top: 40px;
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        #dicas ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #dicas li {
+            margin-bottom: 20px;
+            padding-left: 30px;
+            text-align: left;
+        }
+
+        #dicas li::before {
+            content: "👉 ";
+            font-size: 1.5em;
+            color: #ff66b2;
+        }
+
+        strong {
+            color: #4f84c1;
+        }
+
+        h2 {
+            color: #ff66b2;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>VERBA!</h1>
+        <p>This pedagogical interface prototype was created to help you practice essay topics from the main entrance exams in Brazil. By drawing real themes from past exams, it allows you to develop your writing skills, critical reflection, and argumentation, essential for good performance in exams. Prepare efficiently and strategically with updated and varied topics!</p>
+        <button onclick="sortearTema()">Draw Topic</button>
+        <div id="resultado"></div>
+        <div id="dicas">
+            <h2>Essay Tips:</h2>
+            <ul>
+                <li><strong>📝 Introduction:</strong> Clearly present the topic and your proposal. Provide an appropriate context.</li>
+                <li><strong>💡 Development:</strong> Organize the arguments in a cohesive and logical manner, ensuring that each paragraph complements the previous one.</li>
+                <li><strong>✅ Conclusion:</strong> Reaffirm the thesis clearly and objectively, proposing a solution or reflection on the topic.</li>
+                <li><strong>🔗 Cohesion and Coherence:</strong> Use connectors and transitions between ideas to ensure the flow of the text.</li>
+                <li><strong>🔍 Review:</strong> After writing, review your text to correct grammatical and punctuation errors.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // List of essay topics with university and year
+        const temas = [
+            {
+                tema: "The impact of social media on shaping opinions.",
+                universidade: "UFMG",
+                ano: 2023
+            },
+            {
+                tema: "The role of science in the contemporary world.",
+                universidade: "UFMG",
+                ano: 2022
+            },
+            {
+                tema: "The importance of the past in understanding the present.",
+                universidade: "UFMG",
+                ano: 2021
+            },
+            {
+                tema: "Does the ability to oppose a socially established destiny strengthen our humanity?",
+                universidade: "UFRJ",
+                ano: 2023
+            },
+            {
+                tema: "Is planned lying a valid political weapon to conquer and sustain power?",
+                universidade: "UFRJ",
+                ano: 2022
+            },
+            {
+                tema: "Should the principle 'certainty is not truth' guide people's public and private lives?",
+                universidade: "UFRJ",
+                ano: 2021
+            },
+            {
+                tema: "The habit of reading and the profile of Brazilian readers.",
+                universidade: "UFSC",
+                ano: 2023
+            },
+            {
+                tema: "The relationship between agribusiness and the environment in Brazil's development.",
+                universidade: "UFSC",
+                ano: 2022
+            },
+            {
+                tema: "School exclusion and the right to education in Brazil.",
+                universidade: "UFSC",
+                ano: 2020
+            },
+            {
+                tema: "Challenges of public education in the post-pandemic context.",
+                universidade: "UnB",
+                ano: 2022
+            },
+            {
+                tema: "The role of universities in promoting regional development.",
+                universidade: "UnB",
+                ano: 2021
+            },
+            {
+                tema: "The influence of Northeastern culture on Brazilian identity formation.",
+                universidade: "UFPE",
+                ano: 2023
+            },
+            {
+                tema: "The use of pesticides and their effects on public health.",
+                universidade: "UFPE",
+                ano: 2022
+            },
+            {
+                tema: "The preservation of the cerrado and its environmental implications.",
+                universidade: "UFPE",
+                ano: 2021
+            },
+            {
+                tema: "The contribution of Brazilian popular music to world culture.",
+                universidade: "UFG",
+                ano: 2023
+            },
+            {
+                tema: "The importance of indigenous education in the contemporary context.",
+                universidade: "UFG",
+                ano: 2022
+            },
+            {
+                tema: "Amazonian biodiversity and its economic potential.",
+                universidade: "UFAM",
+                ano: 2023
+            },
+            {
+                tema: "The impact of livestock farming on the Pantanal environment.",
+                universidade: "UFAM",
+                ano: 2022
+            },
+            {
+                tema: "The importance of the Portuguese language in cultural preservation.",
+                universidade: "UFAM",
+                ano: 2021
+            }
+        ];
+
+        // Function that draws a topic and displays the university and year
+        function sortearTema() {
+            const temaAleatorio = temas[Math.floor(Math.random() * temas.length)];
+            const resultado = `
+                <strong>Topic:</strong> ${temaAleatorio.tema}<br>
+                <strong>University:</strong> ${temaAleatorio.universidade}<br>
+                <strong>Year:</strong> ${temaAleatorio.ano}
+            `;
+            document.getElementById("resultado").innerHTML = resultado;
+
+            // Show the tips
+            document.getElementById("dicas").style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
