@@ -32,11 +32,9 @@ To use these widgets in your classroom, simply clone this repository and start u
 
 Here are a few examples of what you can do with these widgets:
 
-Interactive Buttons: Create buttons for quizzes, flashcards, or navigation within lessons.
-
-Activity Widgets: Use buttons to trigger specific classroom activities or display important messages.
-
-Feedback Tools: Implement simple feedback mechanisms, such as thumbs-up/thumbs-down buttons.
+- Interactive Buttons: Create buttons for quizzes, flashcards, or navigation within lessons.
+- Activity Widgets: Use buttons to trigger specific classroom activities or display important messages.
+- Feedback Tools: Implement simple feedback mechanisms, such as thumbs-up/thumbs-down buttons.
 
 ## Customizing the Widgets
 
@@ -46,11 +44,11 @@ You can easily customize the widgets by editing the HTML and CSS. For example, t
 
 You can also modify the button's style by adjusting the style.css file:
 
-.interactive-btn {
+``.interactive-btn {
   background-color: #4CAF50; /* Change button color */
   color: white;              /* Change button text color */
   padding: 15px 32px;        /* Adjust button size */
-}
+}``
 
 This allows you to create your own custom widgets to suit your classroom activities.
 
