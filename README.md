@@ -54,6 +54,12 @@ You can also modify the button's style by adjusting the style.css file:
 
 This allows you to create your own custom widgets to suit your classroom activities.
 
+## Complementary Workshop on AI for Education
+
+In the `docs` folder of this repository, you will find a PDF presentation from a workshop aimed at helping teachers, especially those without programming experience, create interactive tools in HTML and JavaScript. This workshop demonstrates how Artificial Intelligence can be used to enhance classroom experiences by making lessons more dynamic and personalized. It provides simple, easy-to-follow examples for educators looking to integrate technology into their teaching practice.
+
+You can download and view the full presentation [here](./docs/workshop.pdf).
+
 ## Test Online
 
 You can also test these interactive widgets directly on my personal website [here](https://www.schaitel.com.br). This allows you to experience how the widgets work in a real classroom setting before implementing them yourself.
